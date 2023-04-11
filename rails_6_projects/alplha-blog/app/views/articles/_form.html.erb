@@ -1,0 +1,23 @@
+<% if @article.errors.any? %>
+  <h2>The following errors prevented the article from being saved</h2> 
+  <% @article.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<%= form_with(model: @article, local: true) do |form|%>
+  <p>
+    <%= form.label :title %>
+    <br />
+    <%= form.text_field :title %>    
+  </p>
+  <p>
+    <%= form.label :description %>
+    <br />
+    <%= form.text_area :description %>
+  </p>
+  <%= form.submit %>
+  <button><%= link_to("Cancel", articles_path) %></button>
+<% end %>
