@@ -11,13 +11,15 @@
   <p>
     <%= form.label :title %>
     <br />
-    <%= form.text_field :title %>    
+    <%= form.text_field :title, class: "border-2", placeholder: "Title of article" %> 
   </p>
   <p>
     <%= form.label :description %>
     <br />
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "border-2", placeholder: "Description of article" %>
   </p>
-  <%= form.submit %>
-  <button><%= link_to("Cancel", articles_path) %></button>
+  <div class="mt-2">
+    <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= form.submit class: "bg-transparent" %></button>
+    <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Cancel", articles_path) %></button>
+  </div>
 <% end %>
