@@ -3,6 +3,21 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(params.require(:user).permit(:username, :email, :password))
+      byebug
+      flash[:notice] = "Profile updated"
+      redirect_to articles_path
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @user = User.new(params.require(:user).permit(:username, :email, :password))
     if @user.save
