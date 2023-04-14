@@ -1,0 +1,7 @@
+<div class="flex justify-end m-4">
+  <% if logged_in? %>
+    <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Sign out", signout_path, method: :delete) %></button>
+  <%else%>
+    <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Sign in", signin_path) %></button>
+  <%end%>
+</div>
