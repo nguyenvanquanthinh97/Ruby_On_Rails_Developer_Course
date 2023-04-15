@@ -4,5 +4,7 @@
 <p><strong>Description: </strong><%= @article.description %></p>
 
 <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Article list", articles_path) %></button>
-<button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Edit", edit_article_path(@article)) %></button>
-<button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}) %></button>
+<%if logged_in? && @article.user == current_user%>
+  <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Edit", edit_article_path(@article)) %></button>
+  <button class="px-5 py-3 text-xs rounded-md text-zinc-800 bg-gray-300 hover:bg-blue-700 hover:text-white duration-500"><%= link_to("Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}) %></button>
+<%end%>
